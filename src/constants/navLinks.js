@@ -7,14 +7,26 @@ export const navLinks = [
   },
   {
     id: 2,
-    title: "Yangi ovqatlar",
-    link: "/fresh_foods",
-    icon: "bx bx-food-menu"
+    title: "Reklama",
+    link: "/reklama",
+    icon: "bx bx-volume-full"
   },
   {
       id: 3,
       title: "Ishchilar",
       link: "/employee",
-      icon: "bx bx-food-menu"
+      icon: "bx bxs-group"
+  },
+  {
+      id: 4,
+      title: "Kompaniya nomlari",
+      link: "/company",
+      icon: "bx bx-spreadsheet"
+  },
+  {
+      id: 4,
+      title: "Bildirishnoma",
+      link: "/notification",
+      icon: "bx bx-bell"
   }
 ]

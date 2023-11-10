@@ -77,18 +77,18 @@
 
     <div class="flex flex-wrap justify-start items-center mt-10 gap-6">
       <div class="lg:w-[31%] lg:h-[250px] 2xl:w-[32%] 2xl:h-[307px] grid justify-center items-center border bg-[#F4F4F4] py-[24px] rounded-[7px] shadow-md">
-        <div class="absolute mb-[180px] ml-[230px]">
+        <div class="absolute mb-[180px] 2xl:mb-[220px] lg:ml-[230px] 2xl:ml-[400px]">
           <button id="dropdownToggleButton" data-dropdown-toggle="dropdownToggle" class="" type="button"><i class='bx bx-dots-vertical-rounded text-[28px]'></i></button>
           
           <!-- Dropdown menu -->
-          <div id="dropdownToggle" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-72 dark:bg-gray-700 dark:divide-gray-600" >
+          <div id="dropdownToggle" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-[150px] dark:bg-gray-700 dark:divide-gray-600" >
             <ul class="p-3 space-y-1 text-md text-gray-700 dark:text-gray-200" aria-labelledby="dropdownToggleButton">
               <li>
                 <div class="flex p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                  <a href="#"><i class='bx bx-trash mr-2'></i>O'chirish</a>
+                  <a @click="showModal()" href="#"><i class='bx bx-trash mr-2'></i>O'chirish</a>
                 </div>
                 <div class="flex p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                  <a href="#"><i class='bx bx-edit alt mr-2'></i>O'zgartirish</a>
+                  <a @click="updateContact(el.id)" href="#"><i class='bx bx-edit alt mr-2'></i>O'zgartirish</a>
                 </div>
               </li>
               <li>
@@ -105,42 +105,67 @@
         </div>
         <img src="../../assets/images/menu/2.png" alt="" class="w-[150px] h-[150px] mx-auto">
         <div class="flex justify-center items-center my-[12px]">
-          <h2 class="text-[24px] font-[500] font-self">O'zingiz tanlang</h2>
+          <a href="/yourself" class="text-[24px] font-[500] font-self">O'zingiz tanlang</a>
         </div>
       </div>
       <div class="lg:w-[31%] lg:h-[250px] 2xl:w-[32%] 2xl:h-[307px] grid justify-center items-center border bg-[#F4F4F4] py-[24px] rounded-[7px] shadow-md">
-        <i @click="showModal()" class='bx bx-dots-vertical-rounded cursor-pointer text-[28px] absolute ml-[220px] 2xl:ml-[420px] lg:mb-[190px] 2xl:mb-[230px]' ></i>
+        <div class="absolute mb-[180px] 2xl:mb-[220px] lg:ml-[230px] 2xl:ml-[400px]">
+          <button  id="dropdownToggleButton" data-dropdown-toggle="dropdownToggle" class="" type="button"><i class='bx bx-dots-vertical-rounded text-[28px]'></i></button>
+          
+          <!-- Dropdown menu -->
+          <div id="dropdownToggle" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-[150px] dark:bg-gray-700 dark:divide-gray-600" >
+            <ul class="p-3 space-y-1 text-md text-gray-700 dark:text-gray-200" aria-labelledby="dropdownToggleButton">
+              <li>
+                <div class="flex p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                  <a @click="showModal()" href="#"><i class='bx bx-trash mr-2'></i>O'chirish</a>
+                </div>
+                <div class="flex p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                  <a @click="updateContact(el.id)" href="#"><i class='bx bx-edit alt mr-2'></i>O'zgartirish</a>
+                </div>
+              </li>
+              <li>
+                <div class="flex p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                  <label class="relative inline-flex items-center w-full cursor-pointer">
+                    <input type="checkbox" value="" class="sr-only peer">
+                    <div class="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-600 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-500 peer-checked:bg-[#7EBA34]"></div>
+                    <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Active</span>
+                  </label>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
         <img src="../../assets/images/menu/2.png" alt="" class="w-[150px] h-[150px] mx-auto">
         <div class="flex justify-center items-center my-[12px]">
-          <h2 class="text-[24px] font-[500] font-self">Tayyor taomlar</h2>
+          <a href="/meals" class="text-[24px] font-[500] font-self">Tayyor taomlar</a>
         </div>
       </div>
       <div class="lg:w-[31%] lg:h-[250px] 2xl:w-[32%] 2xl:h-[307px] grid justify-center items-center border bg-[#F4F4F4] py-[24px] rounded-[7px] shadow-md">
         <i @click="showModal()" class='bx bx-dots-vertical-rounded cursor-pointer text-[28px] absolute ml-[220px] 2xl:ml-[420px] lg:mb-[190px] 2xl:mb-[230px]' ></i>
         <img src="../../assets/images/menu/3.png" alt="" class="w-[150px] h-[150px] mx-auto">
         <div class="flex justify-center items-center my-[12px]">
-          <h2 class="text-[24px] font-[500] font-self">Salatlar</h2>
+          <a href="/salads" class="text-[24px] font-[500] font-self">Salatlar</a>
         </div>
       </div>
       <div class="lg:w-[31%] lg:h-[250px] 2xl:w-[32%] 2xl:h-[307px] grid justify-center items-center border bg-[#F4F4F4] py-[24px] rounded-[7px] shadow-md">
         <i @click="showModal()" class='bx bx-dots-vertical-rounded cursor-pointer text-[28px] absolute ml-[220px] 2xl:ml-[420px] lg:mb-[190px] 2xl:mb-[230px]' ></i>
         <img src="../../assets/images/menu/4.png" alt="" class="w-[150px] h-[150px] mx-auto">
         <div class="flex justify-center items-center my-[12px]">
-          <h2 class="text-[24px] font-[500] font-self">Non va shirinliklar</h2>
+          <a href="/bread" class="text-[24px] font-[500] font-self">Non va shirinliklar</a>
         </div>
       </div>
       <div class="lg:w-[31%] lg:h-[250px] 2xl:w-[32%] 2xl:h-[307px] grid justify-center items-center border bg-[#F4F4F4] py-[24px] rounded-[7px] shadow-md">
         <i @click="showModal()" class='bx bx-dots-vertical-rounded cursor-pointer text-[28px] absolute ml-[220px] 2xl:ml-[420px] lg:mb-[190px] 2xl:mb-[230px]' ></i>
         <img src="../../assets/images/menu/5.png" alt="" class="w-[150px] h-[150px] mx-auto">
         <div class="flex justify-center items-center my-[12px]">
-          <h2 class="text-[24px] font-[500] font-self">Ichimliklar</h2>
+          <a href="/drinks" class="text-[24px] font-[500] font-self">Ichimliklar</a>
         </div>
       </div>
       <div class="lg:w-[31%] lg:h-[250px] 2xl:w-[32%] 2xl:h-[307px] grid justify-center items-center border bg-[#F4F4F4] py-[24px] rounded-[7px] shadow-md">
         <i @click="showModal()" class='bx bx-dots-vertical-rounded cursor-pointer text-[28px] absolute ml-[220px] 2xl:ml-[420px] lg:mb-[190px] 2xl:mb-[230px]' ></i>
         <img src="../../assets/images/menu/6.png" alt="" class="w-[150px] h-[150px] mx-auto">
         <div class="flex justify-center items-center my-[12px]">
-          <h2 class="text-[24px] font-[500] font-self">Tayyor set</h2>
+          <a href="/set" class="text-[24px] font-[500] font-self">Tayyor set</a>
         </div>
       </div>
     </div>
