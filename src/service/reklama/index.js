@@ -1,25 +1,19 @@
 import axios from "../axios";
 
 export const reklama = {
-    create: (state) => axios.post("/api/v1/employee", state, {
+    create: (state) => axios.post("/api/v1/banners/create", state, {
         headers:{
             "Authorization": `Bearer ${localStorage.getItem('token')}`
         }
     }),
-    list : () => axios.get(`/api/v1/employee/all`, {
+    list : () => axios.get(`/api/v1/banners/all`, {
         headers:{
             "Authorization": `Bearer ${localStorage.getItem('token')}`
         }
     }),
-    remove: (id)=> axios.delete(`/api/v1/employee/${id}`, {
+    remove: (id)=> axios.delete(`/api/v1/banners/delete/${id}`, {
         headers:{
             "Authorization": `Bearer ${localStorage.getItem('token')}`
         }
-    }),
-    update: (id, state)=> axios.put(`/api/v1/employee/${id}`, state, {
-        headers:{
-            "Authorization": `Bearer ${localStorage.getItem('token')}`
-        }
-    }),
-    
+    }),    
 }

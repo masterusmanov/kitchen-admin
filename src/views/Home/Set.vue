@@ -35,71 +35,48 @@
                         <div class="flex justify-between gap-6">
                             <div class="w-[48%]">
                                 <div class="mt-3">
-                                    <label for="dish_uzb" class="block mb-2 text-[16px] font-medium text-gray-900 dark:text-white">Taom nomi O‘zbek</label>
-                                    <input v-model="contactInfo.dish_uzb" type="text" name="dish_uzb" id="dish_uzb" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Taom nomi" required="">
+                                    <label for="nameUz" class="block mb-2 text-[16px] font-medium text-gray-900 dark:text-white">Taom nomi O‘zbek</label>
+                                    <input v-model="contactInfo.nameUz" type="text" name="nameUz" id="nameUz" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Taom nomi" required="">
                                 </div>
                                 <div class="mt-3">
-                                  <label for="dish_rus" class="block mb-2 text-[16px] font-medium text-gray-900 dark:text-white">Название блюда Русский</label>
-                                  <input v-model="contactInfo.dish_rus" type="text" name="dish_rus" id="dish_rus" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Название блюда" required="">
+                                  <label for="nameRu" class="block mb-2 text-[16px] font-medium text-gray-900 dark:text-white">Название блюда Русский</label>
+                                  <input v-model="contactInfo.nameRu" type="text" name="nameRu" id="nameRu" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Название блюда" required="">
                                 </div>
                                 <div class="mt-3">
-                                  <label for="dish_eng" class="block mb-2 text-[16px] font-medium text-gray-900 dark:text-white">Dish name English</label>
-                                  <input v-model="contactInfo.dish_eng" type="text" name="dish_eng" id="dish_eng" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Dish name" required="">
+                                  <label for="nameEn" class="block mb-2 text-[16px] font-medium text-gray-900 dark:text-white">Dish name English</label>
+                                  <input v-model="contactInfo.nameEn" type="text" name="nameEn" id="nameEn" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Dish name" required="">
                                 </div>
                                 <div class="mt-3">
-                                    <label for="note_uzb" class="block mb-2 text-[16px] font-medium text-gray-900 dark:text-white">Izoh Uzbek</label>
-                                    <input v-model="contactInfo.note_uzb" type="text" name="note_uzb" id="note_uzb" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Izoh Uzbek" required="">
+                                    <label for="descriptionUz" class="block mb-2 text-[16px] font-medium text-gray-900 dark:text-white">Izoh Uzbek</label>
+                                    <input v-model="contactInfo.descriptionUz" type="text" name="descriptionUz" id="descriptionUz" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Izoh Uzbek" required="">
                                 </div>
                                 <div class="mt-3">
-                                    <label for="note_rus" class="block mb-2 text-[16px] font-medium text-gray-900 dark:text-white">Примечание Русский</label>
-                                    <input v-model="contactInfo.note_rus" type="text" name="note_rus" id="note_rus" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Примечание Русский" required="">
+                                    <label for="descriptionRu" class="block mb-2 text-[16px] font-medium text-gray-900 dark:text-white">Примечание Русский</label>
+                                    <input v-model="contactInfo.descriptionRu" type="text" name="descriptionRu" id="descriptionRu" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Примечание Русский" required="">
                                 </div>
                                 <div class="mt-3">
-                                    <label for="note_eng" class="block mb-2 text-[16px] font-medium text-gray-900 dark:text-white">Note english</label>
-                                    <input v-model="contactInfo.note_eng" type="text" name="note_eng" id="note_eng" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Note english" required="">
+                                    <label for="descriptionEn" class="block mb-2 text-[16px] font-medium text-gray-900 dark:text-white">Note english</label>
+                                    <input v-model="contactInfo.descriptionEn" type="text" name="descriptionEn" id="descriptionEn" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Note english" required="">
                                 </div>
                             </div>
                             <div class="w-[48%]">
                                 <div class="mt-3">
-                                    <label for="calories" class="block mb-2 text-[16px] font-medium text-gray-900 dark:text-white">Taom kalloriyasi</label>
-                                    <input v-model="contactInfo.calories" type="text" name="calories" id="calories" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Taom kalloriyasi" required="">
+                                    <label for="kkal" class="block mb-2 text-[16px] font-medium text-gray-900 dark:text-white">Taom kalloriyasi</label>
+                                    <input v-model="contactInfo.kkal" type="text" name="kkal" id="kkal" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Taom kalloriyasi" required="">
                                 </div>
                                 <div class="mt-3">
-                                  <label for="dish_price" class="block mb-2 text-[16px] font-medium text-gray-900 dark:text-white">Taom narxi</label>
-                                  <input v-model="contactInfo.dish_price" type="text" name="dish_price" id="dish_price" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Taom narxi" required="">
+                                  <label for="price" class="block mb-2 text-[16px] font-medium text-gray-900 dark:text-white">Taom narxi</label>
+                                  <input v-model="contactInfo.price" type="text" name="price" id="price" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Taom narxi" required="">
                                 </div>
                                 <div class="mt-3">
-                                  <label for="timeSelector" class="block mb-2 text-[16px] font-medium text-gray-900 dark:text-white">Vaqtni tanlash</label>
-                                    <select id="timeSelector" class="w-[23%] font-bold py-2 px-2 text-[14px] border border-gray-300 outline-none rounded-lg">
-                                        <option value="time1">09:00</option>
-                                        <option value="time2">10:00</option>
-                                        <option value="time3">11:00</option>
-                                        <option value="time4">12:00</option>
-                                        <option value="time5">13:00</option>
-                                        <option value="time6">14:00</option>
-                                        <option value="time7">15:00</option>
-                                        <option value="time8">14:00</option>
-                                        <option value="time9">15:00</option>
-                                        <option value="time10">16:00</option>
-                                        <option value="time11">17:00</option>
-                                        <option value="time12">18:00</option>
-                                        <option value="time13">19:00</option>
-                                      </select>
+                                  <label for="status" class="block mb-2 text-[16px] font-medium text-gray-900 dark:text-white">Active</label>
+                                  <input v-model="isChecked" type="checkbox" name="status" id="status" >
                                 </div>
-                                <div class="grid justify-beetwen items-center my-14 gap-6">
-                                    <h3 class="text-[] font-[500]">Rasm yuklash PNG, JPG (345x180px)</h3>
-                                    <div class="w-[90%] flex gap-6 items-center  ">
-                                        <input type="file" @change="handleFileChange" />
-                                        <button class="bg-blue-600 text-white px-3 py-1 rounded-lg" @click="uploadImage">Rasm yuklang!</button>
-                                    </div>
-                                </div>
+                                <div class="">
+                                  <img v-if="imageUrl" :src="imageUrl" alt="Uploaded Image" class="w-[100px] h-[100px]"/>
+                                </div>          
                             </div>
                         </div>
-                        
-                      <div class="">
-                          <img v-if="imageUrl" :src="imageUrl" alt="Uploaded Image" />
-                      </div>
-                      
                     </div>
                     <div class="flex justify-end items-center">
                         <button v-if="!isUpdate" @click="addContact($event)" type="submit" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
@@ -110,6 +87,13 @@
                         </button>
                     </div>
                 </form>
+                <div class="grid justify-beetwen items-center my-14 gap-6">
+                  <h3 class="text-[] font-[500]">Rasm yuklash PNG, JPG (345x180px)</h3>
+                  <div class="w-[90%] flex gap-6 items-center  ">
+                      <input type="file" @change="handleFileChange" />
+                      <button class="bg-blue-600 text-white px-3 py-1 rounded-lg" @click="uploadImage">Rasm yuklang!</button>
+                  </div>
+              </div>
             </div>
         </div>
     </div>
@@ -152,7 +136,7 @@
             <h2 class="text-[20px] 2xl:text-[24px] font-[500] font-self">25000 so'm</h2>
           </div>
         </div>
-        <div class="lg:w-[23%] lg:h-[250px] 2xl:w-[23%] 2xl:h-[307px] grid justify-center items-center border bg-[#F4F4F4] py-[24px] rounded-[7px] shadow-md">
+        <div v-for="el in computedList" :key="el.id" class="lg:w-[23%] lg:h-[250px] 2xl:w-[23%] 2xl:h-[307px] grid justify-center items-center border bg-[#F4F4F4] py-[24px] rounded-[7px] shadow-md">
           <div class="absolute mb-[180px] 2xl:mb-[220px] lg:ml-[170px] 2xl:ml-[300px]">
             <button id="dropdownToggleButton" data-dropdown-toggle="dropdownToggle" class="" type="button"><i class='bx bx-dots-vertical-rounded text-[28px]'></i></button>
             
@@ -161,7 +145,7 @@
               <ul class="p-3 space-y-1 text-md text-gray-700 dark:text-gray-200" aria-labelledby="dropdownToggleButton">
                 <li>
                   <div class="flex p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                    <a @click="showModal()" href="#"><i class='bx bx-trash mr-2'></i>O'chirish</a>
+                    <a @click="showModal(el.id)" href="#"><i class='bx bx-trash mr-2'></i>O'chirish</a>
                   </div>
                   <div class="flex p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
                     <a @click="updateContact(el.id)" href="#"><i class='bx bx-edit alt mr-2'></i>O'zgartirish</a>
@@ -179,149 +163,14 @@
               </ul>
             </div>
           </div>
-          <img src="../../assets/images/menu/6.png" alt="" class="w-[120px] h-[120px] mx-auto">
+          <img :src="el.photoUrl" alt="" class="w-[120px] h-[120px] mx-auto">
           <div class="grid justify-center items-center text-center gap-1 py-[5px]">
-            <h2 class="text-[20px] 2xl:text-[24px] font-[500] font-self">Saefood salat</h2>
-            <p class="flex items-center font-[700] text-[#5B5B5B]"><i class='bx bxs-hot text-yellow-400 text-[24px] mr-3'></i> 700 kcall</p>
-            <h2 class="text-[20px] 2xl:text-[24px] font-[500] font-self">25000 so'm</h2>
+            <h2 class="text-[20px] 2xl:text-[24px] font-[500] font-self">{{ el.name }}</h2>
+            <p class="flex items-center font-[700] text-[#5B5B5B]"><i class='bx bxs-hot text-yellow-400 text-[24px] mr-3'></i> {{el.kkal}} kkal</p>
+            <h2 class="text-[20px] 2xl:text-[24px] font-[500] font-self">{{el.price}} so'm</h2>
           </div>
         </div>
-        <div class="lg:w-[23%] lg:h-[250px] 2xl:w-[23%] 2xl:h-[307px] grid justify-center items-center border bg-[#F4F4F4] py-[24px] rounded-[7px] shadow-md">
-          <div class="absolute mb-[180px] 2xl:mb-[220px] lg:ml-[170px] 2xl:ml-[300px]">
-            <button id="dropdownToggleButton" data-dropdown-toggle="dropdownToggle" class="" type="button"><i class='bx bx-dots-vertical-rounded text-[28px]'></i></button>
-            
-            <!-- Dropdown menu -->
-            <div id="dropdownToggle" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-[150px] dark:bg-gray-700 dark:divide-gray-600" >
-              <ul class="p-3 space-y-1 text-md text-gray-700 dark:text-gray-200" aria-labelledby="dropdownToggleButton">
-                <li>
-                  <div class="flex p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                    <a @click="showModal()" href="#"><i class='bx bx-trash mr-2'></i>O'chirish</a>
-                  </div>
-                  <div class="flex p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                    <a @click="updateContact(el.id)" href="#"><i class='bx bx-edit alt mr-2'></i>O'zgartirish</a>
-                  </div>
-                </li>
-                <li>
-                  <div class="flex p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                    <label class="relative inline-flex items-center w-full cursor-pointer">
-                      <input type="checkbox" value="" class="sr-only peer">
-                      <div class="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-600 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-500 peer-checked:bg-[#7EBA34]"></div>
-                      <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Active</span>
-                    </label>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <img src="../../assets/images/menu/6.png" alt="" class="w-[120px] h-[120px] mx-auto">
-          <div class="grid justify-center items-center text-center gap-1 py-[5px]">
-            <h2 class="text-[20px] 2xl:text-[24px] font-[500] font-self">Saefood salat</h2>
-            <p class="flex items-center font-[700] text-[#5B5B5B]"><i class='bx bxs-hot text-yellow-400 text-[24px] mr-3'></i> 700 kcall</p>
-            <h2 class="text-[20px] 2xl:text-[24px] font-[500] font-self">25000 so'm</h2>
-          </div>
-        </div>
-        <div class="lg:w-[23%] lg:h-[250px] 2xl:w-[23%] 2xl:h-[307px] grid justify-center items-center border bg-[#F4F4F4] py-[24px] rounded-[7px] shadow-md">
-          <div class="absolute mb-[180px] 2xl:mb-[220px] lg:ml-[170px] 2xl:ml-[300px]">
-            <button id="dropdownToggleButton" data-dropdown-toggle="dropdownToggle" class="" type="button"><i class='bx bx-dots-vertical-rounded text-[28px]'></i></button>
-            
-            <!-- Dropdown menu -->
-            <div id="dropdownToggle" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-[150px] dark:bg-gray-700 dark:divide-gray-600" >
-              <ul class="p-3 space-y-1 text-md text-gray-700 dark:text-gray-200" aria-labelledby="dropdownToggleButton">
-                <li>
-                  <div class="flex p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                    <a @click="showModal()" href="#"><i class='bx bx-trash mr-2'></i>O'chirish</a>
-                  </div>
-                  <div class="flex p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                    <a @click="updateContact(el.id)" href="#"><i class='bx bx-edit alt mr-2'></i>O'zgartirish</a>
-                  </div>
-                </li>
-                <li>
-                  <div class="flex p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                    <label class="relative inline-flex items-center w-full cursor-pointer">
-                      <input type="checkbox" value="" class="sr-only peer">
-                      <div class="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-600 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-500 peer-checked:bg-[#7EBA34]"></div>
-                      <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Active</span>
-                    </label>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <img src="../../assets/images/menu/6.png" alt="" class="w-[120px] h-[120px] mx-auto">
-          <div class="grid justify-center items-center text-center gap-1 py-[5px]">
-            <h2 class="text-[20px] 2xl:text-[24px] font-[500] font-self">Saefood salat</h2>
-            <p class="flex items-center font-[700] text-[#5B5B5B]"><i class='bx bxs-hot text-yellow-400 text-[24px] mr-3'></i> 700 kcall</p>
-            <h2 class="text-[20px] 2xl:text-[24px] font-[500] font-self">25000 so'm</h2>
-          </div>
-        </div>
-        <div class="lg:w-[23%] lg:h-[250px] 2xl:w-[23%] 2xl:h-[307px] grid justify-center items-center border bg-[#F4F4F4] py-[24px] rounded-[7px] shadow-md">
-          <div class="absolute mb-[180px] 2xl:mb-[220px] lg:ml-[170px] 2xl:ml-[300px]">
-            <button id="dropdownToggleButton" data-dropdown-toggle="dropdownToggle" class="" type="button"><i class='bx bx-dots-vertical-rounded text-[28px]'></i></button>
-            
-            <!-- Dropdown menu -->
-            <div id="dropdownToggle" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-[150px] dark:bg-gray-700 dark:divide-gray-600" >
-              <ul class="p-3 space-y-1 text-md text-gray-700 dark:text-gray-200" aria-labelledby="dropdownToggleButton">
-                <li>
-                  <div class="flex p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                    <a @click="showModal()" href="#"><i class='bx bx-trash mr-2'></i>O'chirish</a>
-                  </div>
-                  <div class="flex p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                    <a @click="updateContact(el.id)" href="#"><i class='bx bx-edit alt mr-2'></i>O'zgartirish</a>
-                  </div>
-                </li>
-                <li>
-                  <div class="flex p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                    <label class="relative inline-flex items-center w-full cursor-pointer">
-                      <input type="checkbox" value="" class="sr-only peer">
-                      <div class="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-600 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-500 peer-checked:bg-[#7EBA34]"></div>
-                      <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Active</span>
-                    </label>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <img src="../../assets/images/menu/6.png" alt="" class="w-[120px] h-[120px] mx-auto">
-          <div class="grid justify-center items-center text-center gap-1 py-[5px]">
-            <h2 class="text-[20px] 2xl:text-[24px] font-[500] font-self">Saefood salat</h2>
-            <p class="flex items-center font-[700] text-[#5B5B5B]"><i class='bx bxs-hot text-yellow-400 text-[24px] mr-3'></i> 700 kcall</p>
-            <h2 class="text-[20px] 2xl:text-[24px] font-[500] font-self">25000 so'm</h2>
-          </div>
-        </div>
-        <div class="lg:w-[23%] lg:h-[250px] 2xl:w-[23%] 2xl:h-[307px] grid justify-center items-center border bg-[#F4F4F4] py-[24px] rounded-[7px] shadow-md">
-          <div class="absolute mb-[180px] 2xl:mb-[220px] lg:ml-[170px] 2xl:ml-[300px]">
-            <button id="dropdownToggleButton" data-dropdown-toggle="dropdownToggle" class="" type="button"><i class='bx bx-dots-vertical-rounded text-[28px]'></i></button>
-            
-            <!-- Dropdown menu -->
-            <div id="dropdownToggle" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-[150px] dark:bg-gray-700 dark:divide-gray-600" >
-              <ul class="p-3 space-y-1 text-md text-gray-700 dark:text-gray-200" aria-labelledby="dropdownToggleButton">
-                <li>
-                  <div class="flex p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                    <a @click="showModal()" href="#"><i class='bx bx-trash mr-2'></i>O'chirish</a>
-                  </div>
-                  <div class="flex p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                    <a @click="updateContact(el.id)" href="#"><i class='bx bx-edit alt mr-2'></i>O'zgartirish</a>
-                  </div>
-                </li>
-                <li>
-                  <div class="flex p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                    <label class="relative inline-flex items-center w-full cursor-pointer">
-                      <input type="checkbox" value="" class="sr-only peer">
-                      <div class="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-600 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-500 peer-checked:bg-[#7EBA34]"></div>
-                      <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Active</span>
-                    </label>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <img src="../../assets/images/menu/6.png" alt="" class="w-[120px] h-[120px] mx-auto">
-          <div class="grid justify-center items-center text-center gap-1 py-[5px]">
-            <h2 class="text-[20px] 2xl:text-[24px] font-[500] font-self">Saefood salat</h2>
-            <p class="flex items-center font-[700] text-[#5B5B5B]"><i class='bx bxs-hot text-yellow-400 text-[24px] mr-3'></i> 700 kcall</p>
-            <h2 class="text-[20px] 2xl:text-[24px] font-[500] font-self">25000 so'm</h2>
-          </div>
-        </div>
+        
       </div>
   </div>
   
@@ -357,7 +206,6 @@
     const modal = vueRef(false);  
     const isShowModal = vueRef(false);
     
-
     function showModal() {
         isShowModal.value = !isShowModal.value
     }
@@ -365,36 +213,51 @@
     const router = useRouter();
     const store = setStore();
     const isUpdate = vueRef(false);
+    const isChecked = vueRef(false)
     let computedList = vueRef([]);
     const file = vueRef(null);
-      const imageUrl = vueRef('');
-      const uploadProgress = vueRef(0);
+    const imageUrl = vueRef('');
+    const uploadProgress = vueRef(0);
     
     const contactInfo = reactive({
-        note_uzb: '',
-        dish_uzb: '',
-        dish_rus: '',
-        dish_eng: ''
+      nameUz: '',
+      nameRu: '',
+      nameEn: '',
+      descriptionUz: '',
+      descriptionRu: '',
+      descriptionEn: '',
+      categoryId: '',
+      status: '',
+      photoUrl: '',
+      price: '',
+      kkal: ''
     })
     
     const toggleModal = () => {
         if(modal.value){
             isUpdate.value = false
-            contactInfo.note_uzb=''
-            contactInfo.dish_uzb=''
-            contactInfo.dish_rus=''
-            contactInfo.dish_eng=''
+            contactInfo.nameUz=''
+            contactInfo.nameRu
+            contactInfo.nameEn=''
+            contactInfo.descriptionUz=''
+            contactInfo.descriptionRu=''
+            contactInfo.descriptionEn=''
+            contactInfo.categoryId=''
+            contactInfo.status=''
+            contactInfo.photoUrl=''
+            contactInfo.price=''
+            contactInfo.kkal=''
             
         }
         modal.value = !modal.value
     }
-    
     const updateList = () => {
-        set.list().then((res)=>{
-            store.state.list = res.data    
+      set.list().then((res)=>{
+          store.state.list = res.data    
+          console.log(store.state.list);
         }).catch((error)=>{
             if(error.message == 'Request failed with status code 401' || error.message == 'token expired' || error.message == 'token not found'){
-                router.push({note_uzb: 'login'})
+                router.push({name: 'login'})
             }
             else{
                 console.log(error);
@@ -406,56 +269,89 @@
     
     const addContact=(evet)=>{
         evet.preventDefault();
+        const categoryId = localStorage.getItem('category');
+        contactInfo.status = isChecked.value ? 'ACTIVE' : 'NOT_ACTIVE'; 
         const contact = {
-            note_uzb: contactInfo.note_uzb,
-            dish_uzb: contactInfo.dish_uzb,
-            dish_rus: contactInfo.dish_rus,
-            dish_eng: imageUrl.value
+          nameUz: contactInfo.nameUz,
+          nameRu: contactInfo.nameRu,
+          nameEn: contactInfo.nameEn,
+          descriptionUz: contactInfo.descriptionUz,
+          descriptionRu: contactInfo.descriptionRu,
+          descriptionEn: contactInfo.descriptionEn,
+          categoryId: categoryId,
+          status: contactInfo.status,
+          photoUrl: imageUrl.value,
+          price: contactInfo.price,
+          kkal: contactInfo.kkal,
         }
     
         set.create(contact).then((res)=>{
             if(res.status == 201){
-                contactInfo.note_uzb=''
-                contactInfo.dish_uzb=''
-                contactInfo.dish_rus=''
-                imageUrl.value=''
-                toggleModal()
-                updateList();
+              contactInfo.nameUz=''
+              contactInfo.nameRu=''
+              contactInfo.nameEn=''
+              contactInfo.descriptionUz=''
+              contactInfo.descriptionRu=''
+              contactInfo.descriptionEn=''
+              contactInfo.categoryId=''
+              contactInfo.status=''
+              contactInfo.photoUrl=''
+              contactInfo.price=''
+              contactInfo.kkal=''
+              toggleModal();
+              updateList();
+      
             }
         }).catch((error)=>{
             if(error.message == 'Request failed with status code 401' || error.message == 'token expired' || error.message == 'token not found'){
-                router.push({note_uzb: 'login'})
+                router.push({name: 'login'})
             }
             console.log(error.message);
         })
-    
+      window.location.reload()
     }
     
     const modifyContact=(event)=>{
         event.preventDefault();
+        contactInfo.status = isChecked.value ? 'ACTIVE' : 'NOT_ACTIVE';
         const id  = localStorage.getItem('id')
         const contact = {
-            note_uzb: contactInfo.note_uzb,
-            dish_uzb: contactInfo.dish_uzb,
-            dish_rus: contactInfo.dish_rus,
-            dish_eng: contactInfo.dish_eng
+          nameUz: contactInfo.nameUz,
+          nameRu: contactInfo.nameRu,
+          nameEn: contactInfo.nameEn,
+          descriptionUz: contactInfo.descriptionUz,
+          descriptionRu: contactInfo.descriptionRu,
+          descriptionEn: contactInfo.descriptionEn,
+          categoryId: contactInfo.categoryId,
+          status: contactInfo.status,
+          photoUrl: contactInfo.photoUrl,
+          price: contactInfo.price,
+          kkal: contactInfo.kkal,
         }
-    
+          console.log('Modified Contact:', contact);
+        
         set.update(id, contact).then((res)=>{
             if(res.status == 200){
-                toast.success('successfully updated contact !', {autoClose: 1000, theme: 'dark', pauseOnHover: false})
-                contactInfo.note_uzb=''
-                contactInfo.dish_uzb=''
-                contactInfo.dish_rus=''
-                contactInfo.dish_eng
+                contactInfo.nameUz=''
+                contactInfo.nameRu=''
+                contactInfo.nameEn=''
+                contactInfo.descriptionUz=''
+                contactInfo.descriptionRu=''
+                contactInfo.descriptionEn=''
+                contactInfo.categoryId=''
+                contactInfo.status=''
+                contactInfo.photoUrl=''
+                contactInfo.price=''
+                contactInfo.kkal=''
                 
                 isUpdate.value = false;
                 updateList();
+        
                 toggleModal()
             }
         }).catch((error)=>{
             if(error.message == 'Request failed with status code 401' || error.message == 'token expired' || error.message == 'token not found'){
-                router.push({note_uzb: 'login'})
+                router.push({name: 'login'})
             }
             toast.error(error.message)
         })
@@ -466,6 +362,7 @@
         set.remove(id).then((res)=>{
             if(res.status == 200){
                 updateList();
+        
                 closeModal()
             }
         }).catch((error)=>{
@@ -477,10 +374,17 @@
         localStorage.setItem('id', id)
         isUpdate.value = true;
         const foundContact = store.findOne(id)
-        contactInfo.note_uzb = foundContact[0].note_uzb
-        contactInfo.dish_uzb = foundContact[0].dish_uzb
-        contactInfo.dish_rus = foundContact[0].dish_rus
-        contactInfo.dish_eng = foundContact[0].dish_eng
+        contactInfo.nameUz = foundContact[0].nameUz
+        contactInfo.nameRu = foundContact[0].nameRu
+        contactInfo.nameEn = foundContact[0].nameEn
+        contactInfo.descriptionUz = foundContact[0].descriptionUz
+        contactInfo.descriptionRu = foundContact[0].descriptionRu
+        contactInfo.descriptionEn = foundContact[0].descriptionEn
+        contactInfo.categoryId = foundContact[0].categoryId
+        contactInfo.status = foundContact[0].status
+        contactInfo.photoUrl = foundContact[0].photoUrl
+        contactInfo.price = foundContact[0].price
+        contactInfo.kkal = foundContact[0].kkal
         toggleModal();
     }
   
@@ -493,7 +397,7 @@
       if (file.value) {
           try {
           console.log(file.value);
-          const storageRef = firebaseRef(storage, 'employee/' + file.value.note_uzb);
+          const storageRef = firebaseRef(storage, 'foods/' + file.value.name);
           const uploadTask = uploadBytes(storageRef, file.value);
   
           uploadTask
@@ -520,8 +424,10 @@
         return store.state.list;
     })
     
+
     onMounted(()=>{
         updateList()
+
         initDropdowns()
     })
   </script>

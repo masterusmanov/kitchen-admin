@@ -20,7 +20,7 @@
                 <!-- Modal header -->
                 <div class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
                     <h3 class="text-[24px] font-semibold text-gray-900 dark:text-white">
-                        <span v-if="!isUpdate">Taom haqida malumotlar</span>
+                        <span v-if="!isUpdate">Reklama uchun rasm yuklash</span>
                         <span v-else>Taom malumotlarini yangilash</span>
                     </h3>
                     <button @click='toggleModal' type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="defaultModal">
@@ -29,78 +29,22 @@
                     </button>
                 </div>
                 <!-- Modal body -->
+                <div class="grid justify-beetwen items-center my-14 gap-6">
+                  <h3 class="text-[] font-[500]">Rasm yuklash PNG, JPG (345x180px)</h3>
+                  <div class="w-[90%] flex gap-6 items-center  ">
+                      <input type="file" @change="handleFileChange" />
+                      <button class="bg-blue-600 text-white px-3 py-1 rounded-lg" @click="uploadImage">Rasm yuklang!</button>
+                  </div>
+              </div>
                 <form >
                     <div class="grid gap-4 mb-4 sm:grid-cols-1">
                         
-                        <div class="flex justify-between gap-6">
-                            <div class="w-[48%]">
-                                <div class="mt-3">
-                                    <label for="dish_uzb" class="block mb-2 text-[16px] font-medium text-gray-900 dark:text-white">Taom nomi O‘zbek</label>
-                                    <input v-model="contactInfo.dish_uzb" type="text" name="dish_uzb" id="dish_uzb" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Taom nomi" required="">
-                                </div>
-                                <div class="mt-3">
-                                  <label for="dish_rus" class="block mb-2 text-[16px] font-medium text-gray-900 dark:text-white">Название блюда Русский</label>
-                                  <input v-model="contactInfo.dish_rus" type="text" name="dish_rus" id="dish_rus" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Название блюда" required="">
-                                </div>
-                                <div class="mt-3">
-                                  <label for="dish_eng" class="block mb-2 text-[16px] font-medium text-gray-900 dark:text-white">Dish name English</label>
-                                  <input v-model="contactInfo.dish_eng" type="text" name="dish_eng" id="dish_eng" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Dish name" required="">
-                                </div>
-                                <div class="mt-3">
-                                    <label for="note_uzb" class="block mb-2 text-[16px] font-medium text-gray-900 dark:text-white">Izoh Uzbek</label>
-                                    <input v-model="contactInfo.note_uzb" type="text" name="note_uzb" id="note_uzb" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Izoh Uzbek" required="">
-                                </div>
-                                <div class="mt-3">
-                                    <label for="note_rus" class="block mb-2 text-[16px] font-medium text-gray-900 dark:text-white">Примечание Русский</label>
-                                    <input v-model="contactInfo.note_rus" type="text" name="note_rus" id="note_rus" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Примечание Русский" required="">
-                                </div>
-                                <div class="mt-3">
-                                    <label for="note_eng" class="block mb-2 text-[16px] font-medium text-gray-900 dark:text-white">Note english</label>
-                                    <input v-model="contactInfo.note_eng" type="text" name="note_eng" id="note_eng" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Note english" required="">
-                                </div>
-                            </div>
-                            <div class="w-[48%]">
-                                <div class="mt-3">
-                                    <label for="calories" class="block mb-2 text-[16px] font-medium text-gray-900 dark:text-white">Taom kalloriyasi</label>
-                                    <input v-model="contactInfo.calories" type="text" name="calories" id="calories" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Taom kalloriyasi" required="">
-                                </div>
-                                <div class="mt-3">
-                                  <label for="dish_price" class="block mb-2 text-[16px] font-medium text-gray-900 dark:text-white">Taom narxi</label>
-                                  <input v-model="contactInfo.dish_price" type="text" name="dish_price" id="dish_price" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Taom narxi" required="">
-                                </div>
-                                <div class="mt-3">
-                                  <label for="timeSelector" class="block mb-2 text-[16px] font-medium text-gray-900 dark:text-white">Vaqtni tanlash</label>
-                                    <select id="timeSelector" class="w-[23%] font-bold py-2 px-2 text-[14px] border border-gray-300 outline-none rounded-lg">
-                                        <option value="time1">09:00</option>
-                                        <option value="time2">10:00</option>
-                                        <option value="time3">11:00</option>
-                                        <option value="time4">12:00</option>
-                                        <option value="time5">13:00</option>
-                                        <option value="time6">14:00</option>
-                                        <option value="time7">15:00</option>
-                                        <option value="time8">14:00</option>
-                                        <option value="time9">15:00</option>
-                                        <option value="time10">16:00</option>
-                                        <option value="time11">17:00</option>
-                                        <option value="time12">18:00</option>
-                                        <option value="time13">19:00</option>
-                                      </select>
-                                </div>
-                                <div class="grid justify-beetwen items-center my-14 gap-6">
-                                    <h3 class="text-[] font-[500]">Rasm yuklash PNG, JPG (345x180px)</h3>
-                                    <div class="w-[90%] flex gap-6 items-center  ">
-                                        <input type="file" @change="handleFileChange" />
-                                        <button class="bg-blue-600 text-white px-3 py-1 rounded-lg" @click="uploadImage">Rasm yuklang!</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
                       <div class="">
-                          <img v-if="imageUrl" :src="imageUrl" alt="Uploaded Image" />
+                          <img v-if="imageUrl" :src="imageUrl" alt="Uploaded Image"  class="w-[150px] h-[150px]"/>
                       </div>
                       
                     </div>
+                    
                     <div class="flex justify-end items-center">
                         <button v-if="!isUpdate" @click="addContact($event)" type="submit" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             Saqlash
@@ -118,22 +62,16 @@
   
   
       <div class="flex flex-wrap justify-beetwen items-center mt-10 gap-6 2xl:gap-8">
-        <div class="lg:w-[48%] lg:h-[266px] 2xl:w-[48%] 2xl:h-[357px] grid justify-center items-center bg-[#F4F4F4] rounded-[7px] shadow-md">
-          <div class="absolute mb-[] 2xl:mt-[250px] lg:ml-[] 2xl:ml-[50px]">
-            <i @click="showModal()" class='bx bxs-trash text-red-500 text-[28px]'></i>
+        <div v-for="el of computedList" :key="el.id" class="lg:w-[48%] lg:h-[266px] 2xl:w-[48%] 2xl:h-[357px] grid justify-center items-center rounded-[7px]">
+          <div class="absolute mt-[200px] 2xl:mt-[250px] lg:ml-[20px] 2xl:ml-[50px]">
+            <i @click="showModal(el.id)" class='bx bxs-trash text-red-500 text-[28px]'></i>
           </div>
-          <img src="../../assets/images/reklama/reklama.png" alt="" class="w-full h-full">
-        </div>
-        <div class="lg:w-[48%] lg:h-[266px] 2xl:w-[48%] 2xl:h-[357px] grid justify-center items-center bg-[#F4F4F4] rounded-[7px] shadow-md">
-          <div class="absolute mb-[] 2xl:mt-[250px] lg:ml-[] 2xl:ml-[50px]">
-            <i @click="showModal()" class='bx bxs-trash text-red-500 text-[28px]'></i>
-          </div>
-          <img src="../../assets/images/reklama/reklama.png" alt="" class="w-full h-full">
+          <img :src="JSON.parse(el.photoUrl).photoUrl" alt="" class="w-full h-full">
         </div>
       </div>
   </div>
   
-  <Modal v-if="isShowModal" @close="showModal" >
+  <Modal v-if="isShowModal" @close="closeModal" >
     <template #body>
         <p class="text-center text-[24px] font-[500]">
            Reklamani rostdan ham o'chirmoqchimisiz?
@@ -141,7 +79,7 @@
     </template>
     <template #footer>
         <div class="flex justify-center gap-6">
-          <button @click="is" type="button" class="text-[#7EBA34] border border-[#7EBA34] hover:bg-[#7EBA34] rounded-lg text-[24px] font-medium px-10 py-2.5 hover:text-white focus:z-10 ">
+          <button @click="closeModal" type="button" class="text-[#7EBA34] border border-[#7EBA34] hover:bg-[#7EBA34] rounded-lg text-[24px] font-medium px-10 py-2.5 hover:text-white focus:z-10 ">
             Orqaga
           </button>
           <button @click="removeContact" type="button" class="text-[#7EBA34] border border-[#7EBA34] hover:bg-[#7EBA34] rounded-lg text-[24px] font-medium px-10 py-2.5 hover:text-white focus:z-10 ">
@@ -166,9 +104,15 @@
     const isShowModal = vueRef(false);
     
 
-    function showModal() {
-        isShowModal.value = !isShowModal.value
-    }
+    function closeModal() {
+    isShowModal.value = false
+    localStorage.removeItem('delete_id')
+  }
+  
+  function showModal(delete_id) {
+      localStorage.setItem('delete_id', delete_id)
+      isShowModal.value = true
+  }
   
     const router = useRouter();
     const store = reklamaStore();
@@ -179,30 +123,24 @@
       const uploadProgress = vueRef(0);
     
     const contactInfo = reactive({
-        note_uzb: '',
-        dish_uzb: '',
-        dish_rus: '',
-        dish_eng: ''
+        photoUrl: ''
     })
     
     const toggleModal = () => {
         if(modal.value){
             isUpdate.value = false
-            contactInfo.note_uzb=''
-            contactInfo.dish_uzb=''
-            contactInfo.dish_rus=''
-            contactInfo.dish_eng=''
-            
+            contactInfo.photoUrl=''            
         }
         modal.value = !modal.value
     }
     
     const updateList = () => {
         reklama.list().then((res)=>{
+            console.log(res.data);
             store.state.list = res.data    
         }).catch((error)=>{
             if(error.message == 'Request failed with status code 401' || error.message == 'token expired' || error.message == 'token not found'){
-                router.push({note_uzb: 'login'})
+                router.push({name: 'login'})
             }
             else{
                 console.log(error);
@@ -215,59 +153,46 @@
     const addContact=(evet)=>{
         evet.preventDefault();
         const contact = {
-            note_uzb: contactInfo.note_uzb,
-            dish_uzb: contactInfo.dish_uzb,
-            dish_rus: contactInfo.dish_rus,
-            dish_eng: imageUrl.value
+            photoUrl: imageUrl.value
         }
     
         reklama.create(contact).then((res)=>{
             if(res.status == 201){
-                contactInfo.note_uzb=''
-                contactInfo.dish_uzb=''
-                contactInfo.dish_rus=''
-                imageUrl.value=''
+                imageUrl.value = '';
                 toggleModal()
                 updateList();
             }
         }).catch((error)=>{
             if(error.message == 'Request failed with status code 401' || error.message == 'token expired' || error.message == 'token not found'){
-                router.push({note_uzb: 'login'})
+                router.push({name: 'login'})
             }
             console.log(error.message);
         })
-    
+      window.location.reload()   
     }
     
-    const modifyContact=(event)=>{
-        event.preventDefault();
-        const id  = localStorage.getItem('id')
-        const contact = {
-            note_uzb: contactInfo.note_uzb,
-            dish_uzb: contactInfo.dish_uzb,
-            dish_rus: contactInfo.dish_rus,
-            dish_eng: contactInfo.dish_eng
-        }
+    // const modifyContact=(event)=>{
+    //     event.preventDefault();
+    //     const id  = localStorage.getItem('id')
+    //     const contact = {
+    //         photoUrl: contactInfo.photoUrl
+    //     }
     
-        reklama.update(id, contact).then((res)=>{
-            if(res.status == 200){
-                toast.success('successfully updated contact !', {autoClose: 1000, theme: 'dark', pauseOnHover: false})
-                contactInfo.note_uzb=''
-                contactInfo.dish_uzb=''
-                contactInfo.dish_rus=''
-                contactInfo.dish_eng
+    //     reklama.update(id, contact).then((res)=>{
+    //         if(res.status == 200){
+    //             contactInfo.photoUrl=''
                 
-                isUpdate.value = false;
-                updateList();
-                toggleModal()
-            }
-        }).catch((error)=>{
-            if(error.message == 'Request failed with status code 401' || error.message == 'token expired' || error.message == 'token not found'){
-                router.push({note_uzb: 'login'})
-            }
-            toast.error(error.message)
-        })
-    }
+    //             isUpdate.value = false;
+    //             updateList();
+    //             toggleModal()
+    //         }
+    //     }).catch((error)=>{
+    //         if(error.message == 'Request failed with status code 401' || error.message == 'token expired' || error.message == 'token not found'){
+    //             router.push({name: 'login'})
+    //         }
+    //         toast.error(error.message)
+    //     })
+    // }
     
     const removeContact=()=>{
         const id = localStorage.getItem('delete_id')
@@ -285,10 +210,7 @@
         localStorage.setItem('id', id)
         isUpdate.value = true;
         const foundContact = store.findOne(id)
-        contactInfo.note_uzb = foundContact[0].note_uzb
-        contactInfo.dish_uzb = foundContact[0].dish_uzb
-        contactInfo.dish_rus = foundContact[0].dish_rus
-        contactInfo.dish_eng = foundContact[0].dish_eng
+        contactInfo.photoUrl = foundContact[0].photoUrl
         toggleModal();
     }
   
@@ -301,7 +223,7 @@
       if (file.value) {
           try {
           console.log(file.value);
-          const storageRef = firebaseRef(storage, 'employee/' + file.value.note_uzb);
+          const storageRef = firebaseRef(storage, 'reklama/' + file.value.name);
           const uploadTask = uploadBytes(storageRef, file.value);
   
           uploadTask

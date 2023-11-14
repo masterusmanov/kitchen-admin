@@ -1,22 +1,22 @@
 import axios from "../axios";
 
-export const servicePrice = {
-    create: (state) => axios.post("/api/v1/service", state, {
+export const notification = {
+    create: (state) => axios.post("/api/v1/notifications/set-notification", state, {
         headers:{
             "Authorization": `Bearer ${localStorage.getItem('token')}`
         }
     }),
-    list : () => axios.get(`/api/v1/service/all`, {
+    list : () => axios.get(`/api/v1/notifications/all`, {
         headers:{
             "Authorization": `Bearer ${localStorage.getItem('token')}`
         }
     }),
-    remove: (id)=> axios.delete(`/api/v1/service/${id}`, {
+    remove: (id)=> axios.delete(`/api/v1/notifications/${id}`, {
         headers:{
             "Authorization": `Bearer ${localStorage.getItem('token')}`
         }
     }),
-    update: (id, state)=> axios.put(`/api/v1/service/${id}`, state, {
+    createId: (id, state)=> axios.post(`/api/v1/notifications/${id}/send-notification`, state, {
         headers:{
             "Authorization": `Bearer ${localStorage.getItem('token')}`
         }

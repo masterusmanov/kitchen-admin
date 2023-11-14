@@ -1,7 +1,7 @@
 import {ref, computed, reactive} from 'vue'
 import {defineStore} from 'pinia'
 
-export const projectStore  = defineStore('project', ()=>{
+export const companyStore  = defineStore('company', ()=>{
     
     const state = reactive({
         list: [],

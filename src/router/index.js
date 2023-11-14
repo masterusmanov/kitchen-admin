@@ -8,6 +8,9 @@ import Bread from '../views/Home/Bread.vue'
 import Drinks from '../views/Home/Drinks.vue'
 import Set from '../views/Home/Set.vue'
 import Reklama from '../views/Home/Reklama.vue'
+import Employee from '../views/Home/Employee.vue'
+import Company from '../views/Home/Company.vue'
+import Notification from '../views/Home/Notification.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -56,6 +59,21 @@ const router = createRouter({
           path: '/reklama',
           name: 'reklama',
           component: Reklama
+        },
+        {
+          path: '/employee',
+          name: 'employee',
+          component: Employee
+        },
+        {
+          path: '/company',
+          name: 'company',
+          component: Company
+        },
+        {
+          path: '/notification',
+          name: 'notification',
+          component: Notification
         },
       ],
       beforeEnter:((to, from, next) => {

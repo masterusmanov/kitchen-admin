@@ -4,7 +4,7 @@
         <div class="w-full bg-gray-600 rounded-lg md:mt-0 sm:max-w-md xl:p-0">
           <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1 class="text-xl font-bold leading-tight tracking-tight md:text-2xl text-white">
-            Регистрация
+            Ro'yhatdan o'tish
             </h1>
             <form class="space-y-4 md:space-y-6" action="#">
               <div class="flex justify-between items-center">
@@ -12,7 +12,7 @@
                   <label
                     for="name"
                     class="block mb-2 text-sm font-medium text-white"
-                    >Имя</label>
+                    >Ismingiz</label>
                   <input
                     v-model="input.name"
                     type="text"
