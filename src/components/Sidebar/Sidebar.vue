@@ -54,7 +54,7 @@ const logout = () => {
     >
     <!-- <button @click="toggleModal" class="w-[36px] text-[18px] h-[36px] mx-[300px] my-[60px] absolute text-[#7EBA34] px-2 py-1 bg-[#E5F1D6] rounded-lg"><i class='bx bx-chevron-left'></i></button> -->
       <div class="h-[100%] px-[20px] overflow-y-auto bg-[#F4F4F4] py-[40px]">
-        <img src="../../assets/images/kitchen_logo.svg" alt="logo" class="w-[150px] h-[70px]">
+        <img src="../../assets/images/logo.svg" alt="logo" class="w-[150px] h-[70px]">
         <div class="flex justify-between items-center relative">
         </div>
         <ul class="space-y-2 font-medium mt-[16px]">
