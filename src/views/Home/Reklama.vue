@@ -61,7 +61,7 @@
   
   
   
-      <div class="flex flex-wrap justify-beetwen items-center mt-10 gap-6 2xl:gap-8">
+      <div class="flex flex-wrap justify-beetwen items-center mt-10 gap-6 2xl:gap-14">
         <div v-for="el of computedList" :key="el.id" class="lg:w-[48%] lg:h-[266px] 2xl:w-[48%] 2xl:h-[357px] grid justify-center items-center rounded-[7px]">
           <div class="absolute mt-[200px] 2xl:mt-[250px] lg:ml-[20px] 2xl:ml-[50px]">
             <i @click="showModal(el.id)" class='bx bxs-trash text-red-500 text-[28px]'></i>

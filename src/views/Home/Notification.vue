@@ -90,7 +90,7 @@
         <section class="flex flex-wrap justify-beetwen gap-10 p-0 sm:p-5 md:p-0 md:py-4 mt-10">
 
         <!-- ------------------------table-------------------------------------------- -->
-        <div class="w-[98%] px-0 lg:p-0">
+        <div class="w-[98.5%] 2xl:w-[99%] px-0 lg:p-0">
             <!-- Start coding here -->
             <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
                 <div class="overflow-x-auto">
