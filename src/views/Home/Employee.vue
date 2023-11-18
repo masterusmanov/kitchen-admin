@@ -49,17 +49,23 @@
                                     <label for="password" class="block mb-2 text-[16px] font-medium text-gray-900 dark:text-white">Paol</label>
                                     <input v-model="contactInfo.password" type="password" name="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="parol kiriting" required="">
                                 </div>
-                                <div class="mt-3">
-                                    <label for="role" class="block mb-2 text-[16px] font-medium text-gray-900 dark:text-white">Ish roli</label>
-                                    <input v-model="contactInfo.role" type="text" name="role" id="role" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Roli" required="">
+                                <div class="mt-3 flex items-center">
+                                    <div class="w-[50%]">
+                                        <label for="startSelector" class="block mb-2 text-[16px] font-medium text-gray-900 dark:text-white">Ish roli</label>
+                                        <select id="startSelector" class="w-[25%]  py-2 px-2 text-[14px] border border-gray-300 outline-none rounded-lg" @change="handleStartTimeChange($event.target.value)">
+                                            <option value="ROLE_ADMIN">Admin</option>
+                                            <option value="ROLE_DEVELOPER">Dasturchi</option>
+                                            <option value="ROLE_DIRECTOR">Direktor</option>
+                                            <option value="ROLE_COOKER">Oshpaz</option>
+                                            <option value="ROLE_SUPPLIER">Yetkazib beruvchi</option>
+                                        </select>
+                                    </div>
+                                    <div class="">
+                                        <img v-if="imageUrl" :src="imageUrl" alt="Uploaded Image" class="w-[100px]"/>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        
-                      <div class="">
-                          <img v-if="imageUrl" :src="imageUrl" alt="Uploaded Image" class="w-[100px]"/>
-                      </div>
-                      
+                        </div>                      
                     </div>
                     <div class="flex justify-end items-center">
                         <button v-if="!isUpdate" @click="addContact($event)" type="submit" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
@@ -174,6 +180,11 @@
       isShowModal.value = true
   }
   
+  const handleStartTimeChange = (selectedValue) => {
+    contactInfo.role = selectedValue;
+    console.log(contactInfo.role);
+  };
+
   const router = useRouter();
   const store = employeeStore();
   const modal = vueRef(false);
