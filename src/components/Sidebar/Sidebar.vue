@@ -52,9 +52,9 @@ const logout = () => {
       "
       aria-label="Sidebar"
     >
-    <!-- <button @click="toggleModal" class="w-[36px] text-[18px] h-[36px] mx-[300px] my-[60px] absolute text-[#7EBA34] px-2 py-1 bg-[#E5F1D6] rounded-lg"><i class='bx bx-chevron-left'></i></button> -->
+    <!-- <button @click="toggleModal" class="w-[36px] text-[18px] h-[36px] mx-[270px] my-[20px] absolute text-[#7EBA34] px-2 py-1 bg-[#E5F1D6] rounded-lg"><i class='bx bx-chevron-left'></i></button> -->
       <div class="h-[100%] px-[20px] overflow-y-auto bg-[#F4F4F4] py-[40px]">
-        <img src="../../assets/images/logo.svg" alt="logo" class="w-[150px] h-[70px]">
+        <img src="../../assets/images/logo.svg" alt="logo" class="w-[150px] h-[70px] mt-[20px]">
         <div class="flex justify-between items-center relative">
         </div>
         <ul class="space-y-2 font-medium mt-[16px]">
@@ -80,12 +80,12 @@ const logout = () => {
 
     <aside id="default-sidebar" :class=" modal ? 'fixed top-0 left-0 z-40 w-80 h-screen transition-transform translate-x-0' : 'hidden'" aria-label="Sidebar">
       <div class="w-[100px] h-[100%] px-3 py-4 overflow-y-auto bg-[#F4F4F4] relative" style="position: relative; z-index: 1;"> 
-        <button @click="toggleModal" class="z-10 w-[36px] text-[18px] h-[36px] absolute ml-[60px] my-[60px] text-[#7EBA34] px-2 py-1 bg-[#E5F1D6] rounded-lg"><i class='bx bx-chevron-left'></i></button>
-        <img src="../../assets/images/kitchen_logo2.svg" alt="" class="w-[50px] mt-14 mb-3">
+        <!-- <button @click="toggleModal" class="z-10 w-[36px] text-[18px] h-[36px] absolute mx-[40px] my-[0px] text-[#7EBA34] px-2 py-1 bg-[#E5F1D6] rounded-lg"><i class='bx bx-chevron-left'></i></button> -->
+        <img src="../../assets/images/kitchen_logo2.svg" alt="" class="w-[150px] h-[70px] mt-14 mb-3">
         <ul class="space-y-2 font-medium">
           <li v-for="link in navlink" :key="link.id">
             <router-link :to="link.link" class="flex items-center p-2 rounded-lg text-[24px] text-[#616161] hover:text-[#FFFFFF] hover:bg-[#7EBA34]">
-              <i :class="link.icon"></i>
+              <i :class="link.icon" class="text-[28px] mx-auto"></i>
               <!-- <span class="ml-3">{{ link.title }}</span> -->
             </router-link>
           </li>
