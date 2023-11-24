@@ -97,7 +97,7 @@
                     <table class="w-full text-sm">
                         <thead class="text-md text-white font-bold uppercase bg-gray-500 ">
                             <tr class="">
-                                <th scope="col" class="px-4 py-3 text-left">Sur'ati</th>
+                                <th scope="col" class="px-4 py-3 text-left">Surati</th>
                                 <th scope="col" class="px-4 py-3 text-left">Bildirishnoma sarlavhasi</th>
                                 <th scope="col" class="px-4 py-3 text-left">Qisqacha ma'lumot</th>
                                 <th scope="col" class="px-4 py-3 text-left">Holati</th>
@@ -216,14 +216,14 @@
   const isModalOpen = vueRef(false);
 
     // Methods
-    function openModal (id) {
-        localStorage.setItem('id', id)
+    function openModal(note_id) {
+        localStorage.setItem('note_id', note_id)
         isModalOpen.value = true;
     };
 
     function closeOpenModal() {
         isModalOpen.value = false;
-        localStorage.removeItem('id')
+        localStorage.removeItem('note_id')
     };
 
   const router = useRouter();
@@ -275,7 +275,7 @@
       })
   }
   
-  const addContact=(evet)=>{
+  const addContact = async (evet)=>{
       evet.preventDefault();
       const contact = {
           titleUz: contactInfo.titleUz,
@@ -287,27 +287,33 @@
           photoUrl: imageUrl.value
       }
   
-      notification.create(contact).then((res)=>{
-          if(res.status == 201){
-              contactInfo.titleUz=''
+      try {
+        const res = await notification.create(contact);
+
+        if (res.status === 201) {
+            contactInfo.titleUz=''
               contactInfo.titleRu=''
               contactInfo.titleEn=''
               contactInfo.bodyUz=''
               contactInfo.bodyRu=''
               contactInfo.bodyEn=''
               imageUrl.value=''
-              toggleModal()
-              updateList();
-          }
-      }).catch((error)=>{
-          if(error.message == 'Request failed with status code 401' || error.message == 'token expired' || error.message == 'token not found'){
-              router.push({name: 'login'})
-          }
-          console.log(error.message);
-      })
-      window.location.reload()
-  
-  }
+            toggleModal();
+            updateList();
+        }
+        } catch (error) {
+            if (
+                error.message === 'Request failed with status code 401' ||
+                error.message === 'token expired' ||
+                error.message === 'token not found'
+            ) {
+                router.push({ name: 'login' });
+            }
+            console.log(error.message);
+        } finally {
+            window.location.reload()
+        }
+    }
   
 //   const modifyContact=(event)=>{
 //       event.preventDefault();
@@ -356,8 +362,8 @@
       })
   }
   
-  const sendNote = () => {
-    const id = localStorage.getItem('id');
+  const sendNote=() => {
+    const id = localStorage.getItem('note_id');
 
     notification.send(id)
         .then((res) => {

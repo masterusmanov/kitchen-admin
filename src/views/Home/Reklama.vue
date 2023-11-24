@@ -66,7 +66,7 @@
           <div class="absolute mt-[200px] 2xl:mt-[250px] lg:ml-[20px] 2xl:ml-[50px]">
             <i @click="showModal(el.id)" class='bx bxs-trash text-red-500 text-[28px]'></i>
           </div>
-          <img :src="JSON.parse(el.photoUrl).photoUrl" alt="" class="w-full h-full">
+          <img :src="JSON.parse(el.photoUrl).photoUrl" alt="" class="w-[100%] h-[266px]">
         </div>
       </div>
   </div>
@@ -137,7 +137,7 @@
     const updateList = () => {
         reklama.list().then((res)=>{
             console.log(res.data);
-            store.state.list = res.data    
+            store.state.list = res.data
         }).catch((error)=>{
             if(error.message == 'Request failed with status code 401' || error.message == 'token expired' || error.message == 'token not found'){
                 router.push({name: 'login'})
@@ -150,25 +150,34 @@
         })
     }
     
-    const addContact=(evet)=>{
+    const addContact = async (evet)=>{
         evet.preventDefault();
         const contact = {
             photoUrl: imageUrl.value
         }
     
-        reklama.create(contact).then((res)=>{
-            if(res.status == 201){
-                imageUrl.value = '';
-                toggleModal()
-                updateList();
-            }
-        }).catch((error)=>{
-            if(error.message == 'Request failed with status code 401' || error.message == 'token expired' || error.message == 'token not found'){
-                router.push({name: 'login'})
+        try {
+        const res = await reklama.create(contact);
+
+        if (res.status === 201) {
+            imageUrl.value = '';
+            // Update the list after a successful response
+            toggleModal();
+            updateList();
+        }
+        } catch (error) {
+            if (
+                error.message === 'Request failed with status code 401' ||
+                error.message === 'token expired' ||
+                error.message === 'token not found'
+            ) {
+                router.push({ name: 'login' });
             }
             console.log(error.message);
-        })
-      window.location.reload()   
+        } finally {
+            // This block will be executed whether the request succeeds or fails
+            window.location.reload()
+        }
     }
     
     // const modifyContact=(event)=>{

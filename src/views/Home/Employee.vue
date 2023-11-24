@@ -46,13 +46,14 @@
                                   <input v-model="contactInfo.phone" type="text" name="phone" id="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Telefon raqami" required="">
                                 </div>
                                 <div class="mt-3">
-                                    <label for="password" class="block mb-2 text-[16px] font-medium text-gray-900 dark:text-white">Paol</label>
+                                    <label for="password" class="block mb-2 text-[16px] font-medium text-gray-900 dark:text-white">Parol</label>
                                     <input v-model="contactInfo.password" type="password" name="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="parol kiriting" required="">
                                 </div>
                                 <div class="mt-3 flex items-center">
                                     <div class="w-[50%]">
                                         <label for="startSelector" class="block mb-2 text-[16px] font-medium text-gray-900 dark:text-white">Ish roli</label>
-                                        <select id="startSelector" class="w-[25%]  py-2 px-2 text-[14px] border border-gray-300 outline-none rounded-lg" @change="handleStartTimeChange($event.target.value)">
+                                        <select id="startSelector" class="w-[45%]  py-2 px-2 text-[14px] border border-gray-300 outline-none rounded-lg" @change="handleStartTimeChange($event.target.value)">
+                                            <option >Lavozimini tanlang</option>
                                             <option value="ROLE_ADMIN">Admin</option>
                                             <option value="ROLE_DEVELOPER">Dasturchi</option>
                                             <option value="ROLE_DIRECTOR">Direktor</option>
@@ -161,9 +162,9 @@
   </template>
   
   <script setup>
-  import {ref as vueRef, reactive, computed, onMounted} from 'vue'
+  import {ref as vueRef, reactive, computed, onMounted} from 'vue';
   import { employeeStore } from '../../stores/employee';
-  import {useRouter} from 'vue-router'
+  import {useRouter} from 'vue-router';
   import { employee } from '../../service/employee';
   import { Modal } from 'flowbite-vue'  
   import { storage } from '../../firebase'; 
@@ -180,11 +181,7 @@
       isShowModal.value = true
   }
   
-  const handleStartTimeChange = (selectedValue) => {
-    contactInfo.role = selectedValue;
-    console.log(contactInfo.role);
-  };
-
+  
   const router = useRouter();
   const store = employeeStore();
   const modal = vueRef(false);
@@ -201,39 +198,46 @@
       password: '',
       photoUrl: '',
       role: ''
-  })
-  
-  const toggleModal = () => {
-      if(modal.value){
-          isUpdate.value = false
-          contactInfo.name=''
-          contactInfo.surname=''
-          contactInfo.phone=''
-          contactInfo.password=''
-          contactInfo.photoUrl=''
-          contactInfo.role=''
+    })
+    
+    const toggleModal = () => {
+        if(modal.value){
+            isUpdate.value = false
+            contactInfo.name=''
+            contactInfo.surname=''
+            contactInfo.phone=''
+            contactInfo.password=''
+            contactInfo.photoUrl=''
+            contactInfo.role=''
           
-      }
+        }
       modal.value = !modal.value
-  }
+    }
+    
+    const handleStartTimeChange = (selectedValue) => {
+      contactInfo.role = selectedValue;
+      console.log(contactInfo.role);
+    };
+    
+    const updateList = () => {
+        employee.list().then((res)=>{
+            store.state.list = res.data    
+            console.log(store.state.list);
+        }).catch((error)=>{
+            if(error.message == 'Request failed with status code 401' || error.message == 'token expired' || error.message == 'token not found'){
+                router.push({name: 'login'})
+            }
+            else{
+                console.log(error);
+    
+            }
+            console.log(error.message);
+        })
+    }
   
-  const updateList = () => {
-      employee.list().then((res)=>{
-          store.state.list = res.data    
-          console.log(store.state.list);
-      }).catch((error)=>{
-          if(error.message == 'Request failed with status code 401' || error.message == 'token expired' || error.message == 'token not found'){
-              router.push({name: 'login'})
-          }
-          else{
-              console.log(error);
-  
-          }
-          console.log(error.message);
-      })
-  }
-  
-  const addContact=(evet)=>{
+
+    
+  const addContact = async (evet)=>{
       evet.preventDefault();
       const contact = {
           name: contactInfo.name,
@@ -243,27 +247,35 @@
           photoUrl: imageUrl.value,
           role: contactInfo.role,
       }
-  
-      employee.create(contact).then((res)=>{
-          if(res.status == 201){
-              contactInfo.name=''
-              contactInfo.surname=''
-              contactInfo.phone=''
-              contactInfo.password=''
-              imageUrl.value=''
-              contactInfo.role=''
-              toggleModal()
-              updateList();
-          }
-      }).catch((error)=>{
-          if(error.message == 'Request failed with status code 401' || error.message == 'token expired' || error.message == 'token not found'){
-              router.push({name: 'login'})
-          }
-          console.log(error.message);
-      })
-      window.location.reload()
-  }
-  
+      
+      
+      try {
+        const res = await employee.create(contact);
+
+        if (res.status === 201) {
+            contactInfo.name=''
+            contactInfo.surname=''
+            contactInfo.phone=''
+            contactInfo.password=''
+            imageUrl.value=''
+            contactInfo.role=''
+            toggleModal();
+            updateList();
+        }
+        } catch (error) {
+            if (
+                error.message === 'Request failed with status code 401' ||
+                error.message === 'token expired' ||
+                error.message === 'token not found'
+            ) {
+                router.push({ name: 'login' });
+            }
+            console.log(error.message);
+        } finally {
+            window.location.reload()
+        }
+    }
+
   const modifyContact=(event)=>{
       event.preventDefault();
       const id  = localStorage.getItem('id')
@@ -275,6 +287,7 @@
           photoUrl: contactInfo.photoUrl,
           role: contactInfo.role,
       }
+      console.log('Modified Contact:', contact);
   
       employee.update(id, contact).then((res)=>{
           if(res.status == 200){

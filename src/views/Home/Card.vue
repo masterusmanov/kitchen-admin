@@ -1,8 +1,8 @@
 <template>
     <div class="container mx-auto">
-        <h3 class="text-[18px] font-[400]">Kompaniya nomlari</h3> 
+        <h3 class="text-[18px] font-[400]">Plastik karta</h3> 
       <div class="mt-[24px] flex justify-between items-center">
-        <h1 class="text-[40px] font-[600] font-self">Kompaniya nomlari</h1>
+        <h1 class="text-[40px] font-[600] font-self">Plastik karta</h1>
         <div class="flex flex-col md:flex-row items-center justify-between md:space-y-0 md:space-x-4 p-4">          
             <button  @click="toggleModal" type="button" class="w-[32px] h-[32px] flex items-center justify-center text-white bg-[#7EBA34] hover:bg-[#7EBA68] rounded-lg px-2 py-2">
               +
@@ -32,8 +32,12 @@
                     <div class="grid gap-4 mb-4 sm:grid-cols-1">
                         <div class="grid justify-between gap-6">
                             <div class="mt-3">
-                                <label for="name" class="block mb-2 text-[16px] font-medium text-gray-900 dark:text-white">Kompaniya nomi</label>
-                                <input v-model="contactInfo.name" type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Taom nomi" required="">
+                                <label for="number" class="block mb-2 text-[16px] font-medium text-gray-900 dark:text-white">Karta raqami</label>
+                                <input v-model="contactInfo.number" type="text" name="number" id="number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Karta raqamini kiriting" required="">
+                            </div>   
+                            <div class="mt-3">
+                                <label for="fish" class="block mb-2 text-[16px] font-medium text-gray-900 dark:text-white">F.I.O</label>
+                                <input v-model="contactInfo.fish" type="text" name="fish" id="fish" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="F.I.O kiriting" required="">
                             </div>                                
                     </div>
                     <div class="flex justify-end items-center">
@@ -56,43 +60,25 @@
         <section class=" p-0 sm:p-5 md:p-0 md:py-4 mt-10">
 
         <!-- ------------------------table-------------------------------------------- -->
-        <div class="w-[98.5%] 2xl:w-[99%] px-0 lg:p-0">
-            <!-- Start coding here -->
-            <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
-                <div class="overflow-x-auto">
-                    <table class="w-full text-sm">
-                        <thead class="text-md text-white font-bold uppercase bg-gray-500 ">
-                            <tr class="">
-                                <th scope="col" class="px-4 py-3 text-left">Kompaniya nomlari</th>
-                                <th scope="col" class="px-4 py-3 text-left">Holat</th>
-                                <th scope="col" class="px-10 py-3 text-">O'chirish / Yangilash</th>
-                            </tr>
-                        </thead>
-                        <tbody class="">
-                            <tr v-for="el in computedList" :key="el.id" class="border-b dark:border-gray-700">
-                                <td class="px-4 py-3">{{el.name}}</td>
-                                <td class="px-4 py-3">{{el.status}}</td>
-                                <td class="px-4 py-3 text-[20px]">
-                                    <div  class="bg-white  flex justify-center items-center">
-                                        <button @click="showModal(el.id)" >
-                                            <div class="w-6 h-6 py-1 rounded-md bg-red-500 mr-4 cursor-pointer">
-                                                <i class="bx bx-trash text-white text-[16px] flex items-center justify-center"></i>
-                                            </div>
-                                        </button>
-                                        <button @click="updateContact(el.id)">
-                                            <div class="w-6 h-6 py-1 rounded-md bg-blue-500 mr-4 cursor-pointer">
-                                                <i class="bx bx-task text-white text-[16px] flex items-center justify-center"></i>
-                                            </div>
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                            </tbody>
-                    </table>
-                </div>
-                
-            </div>
+        <div v-for="el in computedList" :key="el.id" class="w-[700px] h-[500px] bg-[red] rounded-2xl mx-auto mt-[100px] relative">
+            <img src="../../assets/images/card.png" alt="card" class="w-[150px] h-[150px] absolute ml-[50px] mt-[120px]">
+            <p class="text-white font-bold text-[50px] absolute mt-[240px] ml-[80px]">{{el.number}}</p>
+            <p class="text-white font-[500] text-[25px] absolute mt-[325px] ml-[300px]">12/{{ new Date().getFullYear() }}</p>
+            <p class="text-white font-bold text-[30px] absolute mt-[400px] ml-[80px]">el.fish</p>
         </div>
+        
+        <!-- <div  class="bg-white  flex justify-center items-center">
+            <button @click="showModal(el.id)" >
+                <div class="w-6 h-6 py-1 rounded-md bg-red-500 mr-4 cursor-pointer">
+                    <i class="bx bx-trash text-white text-[16px] flex items-center justify-center"></i>
+                </div>
+            </button>
+            <button @click="updateContact(el.id)">
+                <div class="w-6 h-6 py-1 rounded-md bg-blue-500 mr-4 cursor-pointer">
+                    <i class="bx bx-task text-white text-[16px] flex items-center justify-center"></i>
+                </div>
+            </button>
+        </div> -->
         <!-- -------------------------end of table------------------------------------- -->
         
         <Modal v-if="isShowModal" @close="closeModal" >
@@ -119,9 +105,9 @@
   
   <script setup>
   import {ref as vueRef, reactive, computed, onMounted} from 'vue';
-  import { companyStore } from '../../stores/company';
+  import { cardStore } from '../../stores/card';
   import {useRouter} from 'vue-router';
-  import { company } from '../../service/company';
+  import { card } from '../../service/card';
   import { Modal } from 'flowbite-vue'  
   import { storage } from '../../firebase'; 
   import {getDownloadURL, uploadBytes, ref as firebaseRef} from 'firebase/storage'
@@ -138,7 +124,7 @@
   }
   
   const router = useRouter();
-  const store = companyStore();
+  const store = cardStore();
   const modal = vueRef(false);
   const isUpdate = vueRef(false);
   let computedList = vueRef([]);
@@ -147,19 +133,21 @@
     const uploadProgress = vueRef(0);
   
   const contactInfo = reactive({
-      name: '',
+      number: '',
+      fish: '',
   })
   
   const toggleModal = () => {
       if(modal.value){
           isUpdate.value = false
-          contactInfo.name=''          
+          contactInfo.number=''          
+          contactInfo.fish=''          
       }
       modal.value = !modal.value
   }
   
   const updateList = () => {
-      company.list().then((res)=>{
+      card.list().then((res)=>{
           store.state.list = res.data    
       }).catch((error)=>{
           if(error.message == 'Request failed with status code 401' || error.message == 'token expired' || error.message == 'token not found'){
@@ -176,13 +164,15 @@
   const addContact = async (evet)=>{
       evet.preventDefault();
       const contact = {
-          name: contactInfo.name,
+          number: contactInfo.number,
+          fish: contactInfo.fish
       }
       
       try{
-          const res = await company.create(contact);
+          const res = await card.create(contact);
           if(res.status == 201){
-              contactInfo.name=''
+              contactInfo.number=''
+              contactInfo.fish=''
               toggleModal()
               updateList();
             }
@@ -196,7 +186,7 @@
             }
             console.log(error.message);
         } finally {
-            window.location.reload()
+            // window.location.reload()
         }     
   }
   
@@ -204,19 +194,15 @@
       event.preventDefault();
       const id  = localStorage.getItem('id')
       const contact = {
-          name: contactInfo.name,
-
-
-
+          number: contactInfo.number,
+          fish: contactInfo.fish
       }
   
-      company.update(id, contact).then((res)=>{
+      card.update(id, contact).then((res)=>{
           if(res.status == 200){
               toast.success('successfully updated contact !', {autoClose: 1000, theme: 'dark', pauseOnHover: false})
-              contactInfo.name=''
-    
-    
-    
+              contactInfo.number=''
+              contactInfo.fish=''    
               
               isUpdate.value = false;
               updateList();
@@ -226,13 +212,12 @@
           if(error.message == 'Request failed with status code 401' || error.message == 'token expired' || error.message == 'token not found'){
               router.push({name: 'login'})
           }
-          toast.error(error.message)
       })
   }
   
   const removeContact=()=>{
       const id = localStorage.getItem('delete_id')
-      company.remove(id).then((res)=>{
+      card.remove(id).then((res)=>{
           if(res.status == 200){
               updateList();
               closeModal()
@@ -246,7 +231,8 @@
       localStorage.setItem('id', id)
       isUpdate.value = true;
       const foundContact = store.findOne(id)
-      contactInfo.name = foundContact[0].name
+      contactInfo.number = foundContact[0].number
+      contactInfo.fish = foundContact[0].fish
       toggleModal();
   }
 
@@ -259,7 +245,7 @@
     if (file.value) {
         try {
         console.log(file.value);
-        const storageRef = firebaseRef(storage, 'company/' + file.value.name);
+        const storageRef = firebaseRef(storage, 'card/' + file.value.name);
         const uploadTask = uploadBytes(storageRef, file.value);
 
         uploadTask

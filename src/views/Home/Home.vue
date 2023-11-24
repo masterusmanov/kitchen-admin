@@ -111,31 +111,17 @@
 
     <div class="flex flex-wrap justify-start items-center mt-10 gap-6">
       <div v-for="el in computedList" :key="el.id" class="lg:w-[31%] lg:h-[250px] 2xl:w-[32%] 2xl:h-[307px] grid justify-center items-center border bg-[#F4F4F4] py-[24px] rounded-[7px] shadow-md">
-        <div class="absolute mb-[180px] 2xl:mb-[220px] lg:ml-[230px] 2xl:ml-[400px]">
-          <button id="dropdownToggleButton" data-dropdown-toggle="dropdownToggle" class="" type="button"><i class='bx bx-dots-vertical-rounded text-[28px]'></i></button>
-          
-          <!-- Dropdown menu -->
-          <div id="dropdownToggle" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-[150px] dark:bg-gray-700 dark:divide-gray-600" >
-            <ul class="p-3 space-y-1 text-md text-gray-700 dark:text-gray-200" aria-labelledby="dropdownToggleButton">
-              <li>
-                <div class="flex p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                  <a @click="showModal1(el.id)" href="#"><i class='bx bx-trash mr-2'></i>O'chirish</a>
-                </div>
-                <div class="flex p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                  <a @click="updateContact(el.id)" href="#"><i class='bx bx-edit alt mr-2'></i>O'zgartirish</a>
-                </div>
-              </li>
-              <li>
-                <div class="flex p-1 rounded  hover:bg-gray-100 dark:hover:bg-gray-600">
-                  <label class="relative inline-flex items-center w-full cursor-pointer">
-                    <input type="checkbox" value="" class="sr-only peer ml-5">
-                    <div class="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-600 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-500 peer-checked:bg-[#7EBA34]"></div>
-                    <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Active</span>
-                  </label>
-                </div>
-              </li>
-            </ul>
-          </div>
+        <div class="absolute grid gap-4 mt-[20px] mb-[180px] 2xl:mb-[220px] lg:ml-[230px] 2xl:ml-[400px]">
+          <button @click="showModal(el.id)" >
+            <div class="w-6 h-6 py-1 rounded-md bg-red-500 mr-4 cursor-pointer">
+                <i class="bx bx-trash text-white text-[16px] flex items-center justify-center"></i>
+            </div>
+        </button>
+        <button @click="updateContact(el.id)">
+            <div class="w-6 h-6 py-1 rounded-md bg-blue-500 mr-4 cursor-pointer">
+                <i class="bx bx-task text-white text-[16px] flex items-center justify-center"></i>
+            </div>
+        </button>
         </div>
         <img :src="el.photoUrl" alt="" class="w-[150px] h-[150px] mx-auto">
         <div class="flex justify-center items-center my-[12px]">
@@ -145,7 +131,7 @@
     </div>
 </div>
 
-<Modal v-if="isShowModal" @close="closeModal1" >
+<Modal v-if="isShowModal" @close="showModal" >
   <template #body>
       <p class="text-center text-[24px] font-[500]">
          Ovqatni rostdan ham o'chirmoqchimisiz?
@@ -153,7 +139,7 @@
   </template>
   <template #footer>
       <div class="flex justify-center gap-6">
-        <button @click="closeModal1" type="button" class="text-[#7EBA34] border border-[#7EBA34] hover:bg-[#7EBA34] rounded-lg text-[24px] font-medium px-10 py-2.5 hover:text-white focus:z-10 ">
+        <button @click="closeModal" type="button" class="text-[#7EBA34] border border-[#7EBA34] hover:bg-[#7EBA34] rounded-lg text-[24px] font-medium px-10 py-2.5 hover:text-white focus:z-10 ">
           Orqaga
         </button>
         <button @click="removeContact" type="button" class="text-[#7EBA34] border border-[#7EBA34] hover:bg-[#7EBA34] rounded-lg text-[24px] font-medium px-10 py-2.5 hover:text-white focus:z-10 ">
@@ -179,20 +165,13 @@
   
   const openModal = vueRef(false);
 
-  const closModal = () => {
-    openModal.value = false;
-  };
   
-  function showModal() {
-      isShowModal.value = !isShowModal.value
-  }
-
-  function closeModal1() {
-    isShowModal.value = false
+  function closeModal() {
     localStorage.removeItem('delete_id')
+    isShowModal.value = false
   }
   
-  function showModal1(delete_id) {
+  function showModal(delete_id) {
       localStorage.setItem('delete_id', delete_id)
       isShowModal.value = true
   }
@@ -262,7 +241,7 @@
       })
   }
   
-  const addContact=(evet)=>{
+  const addContact = async (evet)=>{
       evet.preventDefault();
       contactInfo.status = isChecked.value ? 'ACTIVE' : 'NOT_ACTIVE';
       const contact = {
@@ -275,10 +254,10 @@
         startTime: contactInfo.startTime,
         endTime: contactInfo.endTime,
       }
-      console.log(contact);
-  
-      home.create(contact).then((res)=>{
-          if(res.status == 201){
+      
+      try{
+        const res = await home.create(contact);
+        if(res.status == 201){
             contactInfo.nameUz=''
             contactInfo.nameRu=''
             contactInfo.nameEn=''
@@ -290,14 +269,19 @@
             toggleModal()
             updateList();
           }
-      }).catch((error)=>{
-          if(error.message == 'Request failed with status code 401' || error.message == 'token expired' || error.message == 'token not found'){
-              router.push({name: 'login'})
-          }
-          console.log(error.message);
-      })
-      window.location.reload()
-  }
+      } catch (error) {
+        if (
+                error.message === 'Request failed with status code 401' ||
+                error.message === 'token expired' ||
+                error.message === 'token not found'
+            ) {
+                router.push({ name: 'login' });
+            }
+            console.log(error.message);
+        } finally {
+            window.location.reload()
+        }
+    }
   
   const modifyContact=(event)=>{
       event.preventDefault();
@@ -344,7 +328,7 @@
         console.log(res.status);
           if(res.status == 200){
               updateList();
-              closeModal1()
+              closeModal()
           }
       }).catch((error)=>{
           console.log(error);
@@ -406,7 +390,6 @@
   
   onMounted(()=>{
       updateList()
-      closModal()
       initDropdowns()
   });
 
