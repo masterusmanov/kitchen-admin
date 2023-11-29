@@ -206,18 +206,11 @@
       const contact = {
           name: contactInfo.name,
 
-
-
       }
   
       company.update(id, contact).then((res)=>{
           if(res.status == 200){
-              toast.success('successfully updated contact !', {autoClose: 1000, theme: 'dark', pauseOnHover: false})
               contactInfo.name=''
-    
-    
-    
-              
               isUpdate.value = false;
               updateList();
               toggleModal()

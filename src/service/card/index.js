@@ -1,7 +1,7 @@
 import axios from "../axios";
 
 export const card = {
-    create: (state) => axios.post("/api/v1/cards/create", state, {
+    create: (state) => axios.put("/api/v1/cards/update", state, {
         headers:{
             'Content-Type': 'application/json',
             "Authorization": `Bearer ${localStorage.getItem('token')}`

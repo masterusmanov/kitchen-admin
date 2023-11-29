@@ -60,11 +60,11 @@
         <section class=" p-0 sm:p-5 md:p-0 md:py-4 mt-10">
 
         <!-- ------------------------table-------------------------------------------- -->
-        <div v-for="el in computedList" :key="el.id" class="w-[700px] h-[500px] bg-[red] rounded-2xl mx-auto mt-[100px] relative">
+        <div class="w-[700px] h-[500px] bg-[#7EBA34] rounded-2xl mx-auto mt-[100px] relative">
             <img src="../../assets/images/card.png" alt="card" class="w-[150px] h-[150px] absolute ml-[50px] mt-[120px]">
-            <p class="text-white font-bold text-[50px] absolute mt-[240px] ml-[80px]">{{el.number}}</p>
+            <p class="text-white font-bold text-[50px] absolute mt-[240px] ml-[80px]">{{computedList.number}}</p>
             <p class="text-white font-[500] text-[25px] absolute mt-[325px] ml-[300px]">12/{{ new Date().getFullYear() }}</p>
-            <p class="text-white font-bold text-[30px] absolute mt-[400px] ml-[80px]">el.fish</p>
+            <p class="text-white font-bold text-[30px] absolute mt-[400px] ml-[80px]">{{computedList.fish}}</p>
         </div>
         
         <!-- <div  class="bg-white  flex justify-center items-center">
@@ -127,7 +127,7 @@
   const store = cardStore();
   const modal = vueRef(false);
   const isUpdate = vueRef(false);
-  let computedList = vueRef([]);
+  let computedList = vueRef('');
   const file = vueRef(null);
     const imageUrl = vueRef('');
     const uploadProgress = vueRef(0);
@@ -148,6 +148,7 @@
   
   const updateList = () => {
       card.list().then((res)=>{
+        console.log(res.data);
           store.state.list = res.data    
       }).catch((error)=>{
           if(error.message == 'Request failed with status code 401' || error.message == 'token expired' || error.message == 'token not found'){
@@ -186,34 +187,32 @@
             }
             console.log(error.message);
         } finally {
-            // window.location.reload()
+            window.location.reload()
         }     
   }
   
-  const modifyContact=(event)=>{
-      event.preventDefault();
-      const id  = localStorage.getItem('id')
-      const contact = {
-          number: contactInfo.number,
-          fish: contactInfo.fish
-      }
+//   const modifyContact=(event)=>{
+//       event.preventDefault();
+//       const id  = localStorage.getItem('id')
+//       const contact = {
+//           number: contactInfo.number,
+//           fish: contactInfo.fish
+//       }
   
-      card.update(id, contact).then((res)=>{
-          if(res.status == 200){
-              toast.success('successfully updated contact !', {autoClose: 1000, theme: 'dark', pauseOnHover: false})
-              contactInfo.number=''
-              contactInfo.fish=''    
-              
-              isUpdate.value = false;
-              updateList();
-              toggleModal()
-          }
-      }).catch((error)=>{
-          if(error.message == 'Request failed with status code 401' || error.message == 'token expired' || error.message == 'token not found'){
-              router.push({name: 'login'})
-          }
-      })
-  }
+//       card.create(contact).then((res)=>{
+//           if(res.status == 200){
+//               contactInfo.number=''
+//               contactInfo.fish=''    
+//               isUpdate.value = false;
+//               updateList();
+//               toggleModal()
+//           }
+//       }).catch((error)=>{
+//           if(error.message == 'Request failed with status code 401' || error.message == 'token expired' || error.message == 'token not found'){
+//               router.push({name: 'login'})
+//           }
+//       })
+//   }
   
   const removeContact=()=>{
       const id = localStorage.getItem('delete_id')
@@ -271,7 +270,7 @@
   computedList = computed(()=> {
       return store.state.list;
   })
-  
+  console.log(computedList);
   onMounted(()=>{
       updateList()
   })
